@@ -1,0 +1,90 @@
+body,html{
+    margin: 0;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5em 2.6em;
+    background: url('../images/movie.jpg');
+    background-size: cover;
+}
+
+h1,a{
+    color: white;
+    text-shadow: 0 0 4px black;
+    margin: 0;
+    align-self: center;
+}
+
+h1{
+    font-size: 2.7rem;
+}
+
+a{
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.search{
+    display: flex;
+    justify-content: space-between;
+    margin: -20px auto;
+    width: 40%;
+    border: 1px solid black;
+    padding: 0.5em 0.3em;
+    border-radius: 5px;
+    background-color: white;
+}
+
+input,button,input:focus,input:active{
+    border: none;
+    background-color: white;
+    outline: none;
+}
+
+button{
+    cursor: pointer;
+}
+
+.result{
+    margin-top: 4em;
+}
+.content{
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    margin: 1em auto;
+    width: 70%;
+}
+
+img{
+    width: 99px;
+    height: 147px;
+    margin-right: 1em;
+}
+
+h3,p{
+    margin: 0;
+}
+
+.content-title h3{
+    font-size: 1.125rem;
+    margin-right: 1em;
+}
+
+.content-title,.content-info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+.content-info p{
+    margin-right: 1em;
+    font-size: 0.75rem;
+}
+
+.content-desc{
+    font-size: 0.875rem;
+    color: #6B7280;
+}
