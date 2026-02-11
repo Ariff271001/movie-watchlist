@@ -104,14 +104,14 @@ function removeFromWatchlist(id) {
 async function fetchMovies(searchInput) {
   let movies = [];
   const response = await fetch(
-    `http://www.omdbapi.com/?s=${searchInput}&apikey=86e13c48`,
+    `http://www.omdbapi.com/?s=${searchInput}&apikey='YOUR API KEY'`,
   );
   const data = await response.json();
   console.log(data);
   if (data.Search) {
     for (let movie of data.Search) {
       const movieResponse = await fetch(
-        `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=86e13c48`,
+        `http://www.omdbapi.com/?i=${movie.imdbID}&apikey='YOUR API KEY'`,
       );
       const movieData = await movieResponse.json();
       movies.push(movieData);
