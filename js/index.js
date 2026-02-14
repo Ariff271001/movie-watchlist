@@ -103,21 +103,26 @@ function removeFromWatchlist(id) {
 
 async function fetchMovies(searchInput) {
   let movies = [];
+  
+  // First API call
   const response = await fetch(
-    `http://www.omdbapi.com/?s=${searchInput}&apikey='YOUR API KEY'`,
+    `http://www.omdbapi.com/?s=${searchInput}&apikey=YOUR API KEY`
   );
   const data = await response.json();
   console.log(data);
+  
   if (data.Search) {
-    for (let movie of data.Search) {
-      const movieResponse = await fetch(
-        `http://www.omdbapi.com/?i=${movie.imdbID}&apikey='YOUR API KEY'`,
-      );
-      const movieData = await movieResponse.json();
-      movies.push(movieData);
-    }
-
+    //  Fetch ALL movies at the same time (parallel)
+    const moviePromises = data.Search.map(movie => 
+      fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=YOUR API KEY`)
+        .then(res => res.json())
+    );
+    
+    // Wait for all to complete
+    movies = await Promise.all(moviePromises);
+    
     return movies;
   }
-  return "";
+  
+  return [];
 }
